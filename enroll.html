@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll - Virtech Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <img src="images/profile.jpeg" alt="Virtech Academy Logo" class="logo">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="enroll-hero">
+        <div class="container">
+            <h1>Enroll in Virtech Academy</h1>
+            <p>Join our community of tech learners and start your journey today!</p>
+        </div>
+    </section>
+
+    <section class="enroll-form-section">
+        <div class="container">
+            <h2>Enrollment Form</h2>
+            <form id="enroll-form">
+                <input type="text" id="full-name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="tel" id="contact" placeholder="Contact Number" required>
+                <input type="number" id="age" placeholder="Age" min="10" max="100" required>
+                <select id="course-interest" required>
+                    <option value="">Select Course Interest</option>
+                    <option value="web-dev">Web Development</option>
+                    <option value="ai">AI & Automation</option>
+                    <option value="programming">Programming Fundamentals</option>
+                    <option value="entrepreneurship">Digital Entrepreneurship</option>
+                    <option value="data-science">Data Science</option>
+                    <option value="computer">Computer Science</option>
+                </select>
+                <textarea id="additional-info" placeholder="Additional Information (Optional)" rows="4"></textarea>
+                <button type="submit" class="btn-primary">Submit Enrollment</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Virtech Academy | Eldoret, Kenya</p>
+            <div class="contact-info">
+                <p>Email: virrtech@gmail.com | Phone/WhatsApp: +254740793959</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/ryan.lagat.946" class="social-link" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/ryanlagat9/" class="social-link" target="_blank">Instagram</a>
+                <a href="https://github.com/rrr810" class="social-link" target="_blank">GitHub</a>
+                <a href="https://wa.me/254740793959" class="social-link" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

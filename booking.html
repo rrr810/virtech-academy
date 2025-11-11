@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Session - Virtech Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <img src="images/profile.jpeg" alt="Virtech Academy Logo" class="logo">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="booking-hero">
+        <div class="container">
+            <h1>Book Your Session</h1>
+            <p>Schedule a consultation or demo session with our instructors.</p>
+        </div>
+    </section>
+
+    <section class="booking-form-section">
+        <div class="container">
+            <h2>Booking Form</h2>
+            <form id="booking-form">
+                <input type="text" id="full-name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="tel" id="contact" placeholder="Contact Number" required>
+                <select id="course-interest" required>
+                    <option value="">Select Course Interest</option>
+                    <option value="web-dev">Web Development</option>
+                    <option value="ai">AI & Automation</option>
+                    <option value="programming">Programming Fundamentals</option>
+                    <option value="entrepreneurship">Digital Entrepreneurship</option>
+                    <option value="data-science">Data Science</option>
+                    <option value="computer">Computer Science</option>
+                </select>
+                <input type="date" id="preferred-date" required>
+                <select id="preferred-time" required>
+                    <option value="">Select Preferred Time</option>
+                    <option value="morning">Morning (9 AM - 12 PM)</option>
+                    <option value="afternoon">Afternoon (1 PM - 5 PM)</option>
+                    <option value="evening">Evening (6 PM - 9 PM)</option>
+                </select>
+                <select id="session-type" required>
+                    <option value="">Select Session Type</option>
+                    <option value="consultation">Free Consultation</option>
+                    <option value="demo">Demo Session</option>
+                    <option value="trial">Trial Class</option>
+                </select>
+                <textarea id="additional-info" placeholder="Additional Information" rows="4"></textarea>
+                <button type="submit" class="btn-primary">Book Session</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Virtech Academy | Eldoret, Kenya</p>
+            <div class="contact-info">
+                <p>Email: virrtech@gmail.com | Phone/WhatsApp: +254740793959</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/ryan.lagat.946" class="social-link" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/ryanlagat9/" class="social-link" target="_blank">Instagram</a>
+                <a href="https://github.com/rrr810" class="social-link" target="_blank">GitHub</a>
+                <a href="https://wa.me/254740793959" class="social-link" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
