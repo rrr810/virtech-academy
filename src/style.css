@@ -511,6 +511,8 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     animation: fadeInUp 1s ease-out 0.4s both;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 #booking-form input,
@@ -785,6 +787,9 @@ nav {
     font-size: 1.2rem;
     font-weight: 600;
     margin-top: 2rem;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Back to Top Button */
