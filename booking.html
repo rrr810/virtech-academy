@@ -10,7 +10,7 @@
     <header>
         <nav>
             <div class="nav-container">
-                <img src="images/profile.jpeg" alt="Virtech Academy Logo" class="logo">
+                <img src="assets/profile.jpeg" alt="Virtech Academy Logo" class="logo">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#about">About</a></li>
@@ -30,62 +30,37 @@
 
     <section class="booking-form-section">
         <div class="container">
-            <div class="booking-intro">
-                <h2>Let's Get You Started!</h2>
-                <p>Fill out the form below and we'll contact you within 24 hours to confirm your session.</p>
-            </div>
-
-            <div class="booking-form-container">
-                <form id="booking-form">
-                    <div class="form-section">
-                        <h3>👤 Personal Information</h3>
-                        <div class="form-row">
-                            <input type="text" id="full-name" placeholder="Full Name" required>
-                            <input type="email" id="email" placeholder="Email Address" required>
-                        </div>
-                        <input type="tel" id="contact" placeholder="Contact Number (WhatsApp preferred)" required>
-                    </div>
-
-                    <div class="form-section">
-                        <h3>🎓 Course Interest</h3>
-                        <select id="course-interest" required>
-                            <option value="">Select the course you're interested in:</option>
-                            <option value="web-dev">🌐 Web Development - Build websites from scratch (HTML, CSS, JavaScript)</option>
-                            <option value="ai">🤖 AI & Automation - Create smart chatbots and automated systems</option>
-                            <option value="programming">💻 Programming Fundamentals - Learn Python programming and problem-solving</option>
-                            <option value="entrepreneurship">🚀 Digital Entrepreneurship - Start and grow your tech business</option>
-                            <option value="data-science">📊 Data Science - Analyze data and build predictive models</option>
-                            <option value="computer">🧠 Computer Science - Understand core computer science principles</option>
-                        </select>
-                    </div>
-
-                    <div class="form-section">
-                        <h3>📅 Session Details</h3>
-                        <div class="form-row">
-                            <input type="date" id="preferred-date" placeholder="Select your preferred date" required>
-                            <select id="preferred-time" required>
-                                <option value="">Select your preferred time slot:</option>
-                                <option value="morning">🌅 Morning Session - 9:00 AM to 12:00 PM</option>
-                                <option value="afternoon">☀️ Afternoon Session - 1:00 PM to 5:00 PM</option>
-                                <option value="evening">🌙 Evening Session - 6:00 PM to 9:00 PM</option>
-                            </select>
-                        </div>
-                        <select id="session-type" required>
-                            <option value="">Choose the type of session you want:</option>
-                            <option value="consultation">💬 FREE Consultation (30 minutes) - Discuss your goals and get advice</option>
-                            <option value="demo">🎓 Demo Session (45 minutes) - See our teaching style and course preview</option>
-                            <option value="trial">✨ Trial Class (60 minutes) - Experience a full interactive lesson</option>
-                        </select>
-                    </div>
-
-                    <div class="form-section">
-                        <h3>📝 Additional Information</h3>
-                        <textarea id="additional-info" placeholder="Tell us about your experience level, specific goals, or any questions you have..." rows="4"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-primary">Book My Session</button>
-                </form>
-            </div>
+            <h2>Book Your Session</h2>
+            <p>Schedule a consultation or demo session with our instructors.</p>
+            <form id="booking-form">
+                <input type="text" id="full-name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="tel" id="contact" placeholder="Contact Number" required>
+                <select id="course-interest" required>
+                    <option value="">Which course are you interested in?</option>
+                    <option value="web-dev">🌐 Web Development - HTML, CSS, JavaScript</option>
+                    <option value="ai">🤖 AI & Automation - Chatbots & AI Tools</option>
+                    <option value="programming">💻 Programming Fundamentals - Python & Algorithms</option>
+                    <option value="entrepreneurship">🚀 Digital Entrepreneurship - Start Your Tech Business</option>
+                    <option value="data-science">📊 Data Science - Analyze data and build predictive models</option>
+                    <option value="computer">🧠 Computer Science - Understand core computer science principles</option>
+                </select>
+                <input type="date" id="preferred-date" placeholder="Select your preferred date" required>
+                <select id="preferred-time" required>
+                    <option value="">What time works best for you?</option>
+                    <option value="morning">🌅 Morning (9:00 AM - 12:00 PM)</option>
+                    <option value="afternoon">☀️ Afternoon (1:00 PM - 5:00 PM)</option>
+                    <option value="evening">🌙 Evening (6:00 PM - 9:00 PM)</option>
+                </select>
+                <select id="session-type" required>
+                    <option value="">What type of session do you need?</option>
+                    <option value="consultation">💬 Free Consultation - Discuss your goals (30 mins)</option>
+                    <option value="demo">🎓 Demo Session - See how we teach (45 mins)</option>
+                    <option value="trial">✨ Trial Class - Experience a full lesson (1 hour)</option>
+                </select>
+                <textarea id="additional-info" placeholder="Additional Information" rows="4"></textarea>
+                <button type="submit" class="btn-primary">Book Session</button>
+            </form>
         </div>
     </section>
 
