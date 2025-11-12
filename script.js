@@ -12,13 +12,17 @@ function scrollToBooking() {
     });
 }
 
+// Zapier webhook URL
+const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/25228794/u8m268w/';
+
 // Form validation for contact form
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault();
 
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const course = document.getElementById('course').value;
+    const message = document.getElementById('message').value.trim();
 
     if (!name) {
         alert('Please enter your full name.');
@@ -42,13 +46,48 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
         return;
     }
 
-    alert('Form submitted successfully!');
-    // Here you would typically send the form data to a server
+    // Disable submit button and show loading state
+    const submitButton = this.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Submitting...';
+
+    // Prepare data for Zapier
+    const formData = {
+        formType: 'contact',
+        name: name,
+        email: email,
+        courseInterest: course,
+        message: message,
+        submittedAt: new Date().toISOString()
+    };
+
+    try {
+        // Send data to Zapier webhook
+        const response = await fetch(ZAPIER_WEBHOOK_URL, {
+            method: 'POST',
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            alert('Thank you for contacting us! We will get back to you soon.');
+            this.reset(); // Reset form
+        } else {
+            throw new Error('Failed to submit form');
+        }
+    } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('There was an error submitting your form. Please try again or contact us directly at virrtech@gmail.com');
+    } finally {
+        // Re-enable submit button
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+    }
 });
 
 // Form validation for enrollment form
 if (document.getElementById('enroll-form')) {
-    document.getElementById('enroll-form').addEventListener('submit', function(e) {
+    document.getElementById('enroll-form').addEventListener('submit', async function(e) {
         e.preventDefault();
 
         const fullName = document.getElementById('full-name').value.trim();
@@ -56,6 +95,7 @@ if (document.getElementById('enroll-form')) {
         const contact = document.getElementById('contact').value.trim();
         const age = document.getElementById('age').value;
         const courseInterest = document.getElementById('course-interest').value;
+        const additionalInfo = document.getElementById('additional-info').value.trim();
 
         if (!fullName) {
             alert('Please enter your full name.');
@@ -96,14 +136,51 @@ if (document.getElementById('enroll-form')) {
             return;
         }
 
-        alert('Enrollment submitted successfully! We will contact you soon.');
-        // Here you would typically send the form data to a server
+        // Disable submit button and show loading state
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
+
+        // Prepare data for Zapier
+        const formData = {
+            formType: 'enrollment',
+            fullName: fullName,
+            email: email,
+            contact: contact,
+            age: age,
+            courseInterest: courseInterest,
+            additionalInfo: additionalInfo,
+            submittedAt: new Date().toISOString()
+        };
+
+        try {
+            // Send data to Zapier webhook
+            const response = await fetch(ZAPIER_WEBHOOK_URL, {
+                method: 'POST',
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                alert('Enrollment submitted successfully! We will contact you soon to confirm your enrollment.');
+                this.reset(); // Reset form
+            } else {
+                throw new Error('Failed to submit enrollment');
+            }
+        } catch (error) {
+            console.error('Error submitting enrollment:', error);
+            alert('There was an error submitting your enrollment. Please try again or contact us directly at virrtech@gmail.com or +254740793959');
+        } finally {
+            // Re-enable submit button
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+        }
     });
 }
 
 // Form validation for booking form
 if (document.getElementById('booking-form')) {
-    document.getElementById('booking-form').addEventListener('submit', function(e) {
+    document.getElementById('booking-form').addEventListener('submit', async function(e) {
         e.preventDefault();
 
         const fullName = document.getElementById('full-name').value.trim();
@@ -113,6 +190,7 @@ if (document.getElementById('booking-form')) {
         const preferredDate = document.getElementById('preferred-date').value;
         const preferredTime = document.getElementById('preferred-time').value;
         const sessionType = document.getElementById('session-type').value;
+        const additionalInfo = document.getElementById('additional-info').value.trim();
 
         if (!fullName) {
             alert('Please enter your full name.');
@@ -173,8 +251,47 @@ if (document.getElementById('booking-form')) {
             return;
         }
 
-        alert('Booking submitted successfully! We will contact you to confirm your session.');
-        // Here you would typically send the form data to a server
+        // Disable submit button and show loading state
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
+
+        // Prepare data for Zapier
+        const formData = {
+            formType: 'booking',
+            fullName: fullName,
+            email: email,
+            contact: contact,
+            courseInterest: courseInterest,
+            preferredDate: preferredDate,
+            preferredTime: preferredTime,
+            sessionType: sessionType,
+            additionalInfo: additionalInfo,
+            submittedAt: new Date().toISOString()
+        };
+
+        try {
+            // Send data to Zapier webhook
+            const response = await fetch(ZAPIER_WEBHOOK_URL, {
+                method: 'POST',
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                alert('Booking submitted successfully! We will contact you to confirm your session.');
+                this.reset(); // Reset form
+            } else {
+                throw new Error('Failed to submit booking');
+            }
+        } catch (error) {
+            console.error('Error submitting booking:', error);
+            alert('There was an error submitting your booking. Please try again or contact us directly at virrtech@gmail.com or +254740793959');
+        } finally {
+            // Re-enable submit button
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+        }
     });
 }
 
