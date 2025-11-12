@@ -257,18 +257,58 @@ if (document.getElementById('booking-form')) {
         submitButton.disabled = true;
         submitButton.textContent = 'Submitting...';
 
-        // Prepare data for Zapier
+        // Get readable option texts for better booking details
+        const courseOptions = {
+            'web-dev': '🌐 Web Development - HTML, CSS, JavaScript',
+            'ai': '🤖 AI & Automation - Chatbots & AI Tools',
+            'programming': '💻 Programming Fundamentals - Python & Algorithms',
+            'entrepreneurship': '🚀 Digital Entrepreneurship - Start Your Tech Business',
+            'data-science': '📊 Data Science - Analyze data and build predictive models',
+            'computer': '🧠 Computer Science - Understand core computer science principles'
+        };
+
+        const timeOptions = {
+            'morning': '🌅 Morning (9:00 AM - 12:00 PM)',
+            'afternoon': '☀️ Afternoon (1:00 PM - 5:00 PM)',
+            'evening': '🌙 Evening (6:00 PM - 9:00 PM)'
+        };
+
+        const sessionOptions = {
+            'consultation': '💬 Free Consultation - Discuss your goals (30 mins)',
+            'demo': '🎓 Demo Session - See how we teach (45 mins)',
+            'trial': '✨ Trial Class - Experience a full lesson (1 hour)'
+        };
+
+        // Format date for better readability
+        const formattedDate = new Date(preferredDate).toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        // Prepare structured booking data for Zapier
         const formData = {
             formType: 'booking',
-            fullName: fullName,
-            email: email,
-            contact: contact,
+            bookingDetails: {
+                name: fullName,
+                email: email,
+                phone: contact,
+                courseSlot: `${courseOptions[courseInterest] || courseInterest} - ${sessionOptions[sessionType] || sessionType}`,
+                dateTime: `${formattedDate} at ${timeOptions[preferredTime] || preferredTime}`,
+                notes: additionalInfo || 'No additional notes provided'
+            },
+
+            // Additional metadata for processing
             courseInterest: courseInterest,
+            sessionType: sessionType,
             preferredDate: preferredDate,
             preferredTime: preferredTime,
-            sessionType: sessionType,
-            additionalInfo: additionalInfo,
-            submittedAt: new Date().toISOString()
+            submittedAt: new Date().toISOString(),
+            bookingReference: `BK-${Date.now()}`,
+
+            // Formatted summary
+            summary: `New booking: ${fullName} (${email}) - ${courseOptions[courseInterest] || courseInterest} on ${formattedDate}`
         };
 
         try {
